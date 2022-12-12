@@ -1,14 +1,13 @@
-/*
-  - class로 만들시 장점
-    . ..
-*/
-import 'package:flutter/cupertino.dart';
-import 'package:todo_udemy/todo_step1/models/todo_model.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 
-class TodoFilterState {
+import '../models/todo_model.dart';
+
+class TodoFilterState extends Equatable {
   final Filter filter;
-
-  TodoFilterState({required this.filter});
+  TodoFilterState({
+    required this.filter,
+  });
 
   factory TodoFilterState.initial() {
     return TodoFilterState(filter: Filter.all);
@@ -18,12 +17,14 @@ class TodoFilterState {
   List<Object> get props => [filter];
 
   @override
-  bool get stringfy => true;
+  bool get stringify => true;
 
   TodoFilterState copyWith({
     Filter? filter,
   }) {
-    return TodoFilterState(filter: filter ?? this.filter);
+    return TodoFilterState(
+      filter: filter ?? this.filter,
+    );
   }
 }
 

@@ -5,11 +5,11 @@ import 'pages/todos_page.dart';
 import 'providers/providers.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const TodoUdemyStep1());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class TodoUdemyStep1 extends StatelessWidget {
+  const TodoUdemyStep1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +35,7 @@ class MyApp extends StatelessWidget {
           ) =>
               activeTodoCount!..update(todoList),
         ),
-        ChangeNotifierProxyProvider3<TodoFilter, TodoSearch, TodoList,
-            FilteredTodos>(
+        ChangeNotifierProxyProvider3<TodoFilter, TodoSearch, TodoList, FilteredTodos>(
           create: (context) => FilteredTodos(
             initialFilteredTodos: context.read<TodoList>().state.todos,
           ),
